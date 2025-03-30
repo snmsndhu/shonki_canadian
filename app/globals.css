@@ -1,8 +1,10 @@
 @import "tailwindcss";
+@import "tailwindcss-animated";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --gradient-background: linear-gradient(to bottom, var(--background), #2d0734); /* black to purple-900 */
 }
 
 @theme inline {
@@ -16,11 +18,14 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --gradient-background: linear-gradient(to bottom, var(--background), #6b21a8); /* dark mode gradient (dark gray to purple-800) */
   }
 }
 
 body {
+  /* Apply the gradient to the entire body */
   background: var(--background);
+  padding: 1rem;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
