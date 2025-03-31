@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
@@ -125,7 +124,7 @@ export default function Home() {
               Farmers Hardwork
             </h1>
             <h1 className="font-mono text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-400 mt-3 md:mt-5">
-              Whether you're interested in sustainable farming practices,
+              Whether you are interested in sustainable farming practices,
               innovative techniques, or the stories behind the people who grow
               our food, our channel offers a unique and personal look into the
               heart of agriculture.
