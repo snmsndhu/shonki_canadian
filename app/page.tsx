@@ -15,7 +15,7 @@ export default function Home() {
   const [futureRef, futureInView] = useInView();
 
   return (
-    <div className="w-full px-4 md:px-8 lg:px-16 pt-16 md:pt-20">
+    <div className="w-full px-4 md:px-8 lg:px-16 pt-24 md:pt-28">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <div
@@ -50,6 +50,8 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-purple-500/80 to-transparent my-12 md:my-16"></div>
+
         <div className="min-h-[80vh] md:min-h-screen flex items-center justify-center py-8 md:py-12">
           <div
             ref={introRef}
@@ -75,6 +77,8 @@ export default function Home() {
             </p>
           </div>
         </div>
+
+        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-purple-500/80 to-transparent my-12 md:my-16"></div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <div
@@ -110,6 +114,8 @@ export default function Home() {
             />
           </div>
         </div>
+
+        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-purple-500/80 to-transparent my-12 md:my-16"></div>
 
         <div className="mt-12 md:mt-20 lg:mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <div
@@ -147,6 +153,8 @@ export default function Home() {
             />
           </div>
         </div>
+
+        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-purple-500/80 to-transparent my-12 md:my-16"></div>
 
         <div className="mt-12 md:mt-20 lg:mt-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -186,15 +194,38 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-purple-500/80 to-transparent my-12 md:my-16"></div>
+
         <footer className="py-8 md:py-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <h1 className="text-center md:text-left text-sm md:text-base lg:text-lg">
               © Shonki Canadian
             </h1>
             <div className="grid grid-cols-3 gap-6">
-              <FaSquareInstagram className="text-xl md:text-2xl lg:text-3xl" />
-              <FaFacebook className="text-xl md:text-2xl lg:text-3xl" />
-              <FaYoutube className="text-xl md:text-2xl lg:text-3xl" />
+              <a
+                href="https://www.instagram.com/shonkicanadian/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-purple-400 transition-colors"
+              >
+                <FaSquareInstagram className="text-xl md:text-2xl lg:text-3xl" />
+              </a>
+              <a
+                href="https://www.facebook.com/shonki.canadian"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-purple-400 transition-colors"
+              >
+                <FaFacebook className="text-xl md:text-2xl lg:text-3xl" />
+              </a>
+              <a
+                href="https://www.youtube.com/@Shonkicanadian"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-purple-400 transition-colors"
+              >
+                <FaYoutube className="text-xl md:text-2xl lg:text-3xl" />
+              </a>
             </div>
           </div>
         </footer>
