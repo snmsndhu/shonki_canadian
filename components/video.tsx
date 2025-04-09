@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const YouTubeSlider = () => {
   // List of video IDs from YouTube
@@ -11,49 +11,48 @@ const YouTubeSlider = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">(
+    "right"
+  );
 
   // Move to the next video
   const nextVideo = () => {
     if (isTransitioning) return;
+    setSlideDirection("right");
     setIsTransitioning(true);
     setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % videos.length);
       setIsTransitioning(false);
-    }, 800);
+    }, 500);
   };
 
-  // Auto-scroll effect
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-
-    if (!isHovered && !isTransitioning) {
-      interval = setInterval(() => {
-        nextVideo();
-      }, 5000);
-    }
-
-    return () => {
-      if (interval) {
-        clearInterval(interval);
-      }
-    };
-  }, [isHovered, isTransitioning]);
+  // Move to the previous video
+  const prevVideo = () => {
+    if (isTransitioning) return;
+    setSlideDirection("left");
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex(
+        (prevIndex) => (prevIndex - 1 + videos.length) % videos.length
+      );
+      setIsTransitioning(false);
+    }, 500);
+  };
 
   return (
     <div className="w-full max-w-2xl mx-auto">
       {/* Video Slider */}
-      <div
-        className="relative overflow-hidden w-full"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
+      <div className="relative overflow-hidden w-full">
         {/* YouTube Embed */}
         <div className="relative w-full pb-[56.25%] h-0 overflow-hidden rounded-lg shadow-lg">
           <div
-            className={`absolute top-0 left-0 w-full h-full transition-all duration-800 ease-in ${
-              isTransitioning ? "-translate-x-full" : "translate-x-0"
+            className={`absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-out ${
+              isTransitioning
+                ? slideDirection === "right"
+                  ? "-translate-x-full"
+                  : "translate-x-full"
+                : "translate-x-0"
             }`}
           >
             <iframe
@@ -65,6 +64,50 @@ const YouTubeSlider = () => {
               allowFullScreen
             ></iframe>
           </div>
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="absolute inset-0 flex items-center justify-between px-4">
+          <button
+            onClick={prevVideo}
+            className="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all"
+            aria-label="Previous video"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+          <button
+            onClick={nextVideo}
+            className="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-all"
+            aria-label="Next video"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>

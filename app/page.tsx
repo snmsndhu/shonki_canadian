@@ -53,28 +53,53 @@ export default function Home() {
         <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-purple-500/80 to-transparent my-12 md:my-16"></div>
 
         <div className="min-h-[80vh] md:min-h-screen flex items-center justify-center py-8 md:py-12">
-          <div
-            ref={introRef}
-            className={`text-center space-y-4 md:space-y-6 p-4 md:p-6 transition-all duration-1000 delay-300 ${
-              introInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <p className="text-base md:text-lg">Hello I am</p>
-            <p className="text-transparent bg-gradient-to-r from-purple-700 to-purple-300 bg-clip-text font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Amrit Singh
-            </p>
-            <Image
-              src="/shonki_farmer_1.png"
-              alt="des"
-              width={600}
-              height={600}
-              className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] mx-auto"
-            />
-            <p className="text-sm md:text-lg lg:text-xl">
-              Here is some more text after the image.
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <div
+              ref={introRef}
+              className={`text-center md:text-left space-y-4 md:space-y-6 p-4 md:p-6 transition-all duration-1000 delay-300 ${
+                introInView
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
+              <p className="text-base md:text-lg">Hello I am</p>
+              <p className="text-transparent bg-gradient-to-r from-purple-700 to-purple-300 bg-clip-text font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                Amrit Singh
+              </p>
+              <p className="text-sm md:text-base lg:text-lg text-gray-300">
+                A passionate storyteller and content creator dedicated to
+                sharing the inspiring stories of Canadian farmers. With years of
+                experience in agriculture and media, I bring a unique
+                perspective to showcasing the hard work and dedication of our
+                farming community.
+              </p>
+              <p className="text-sm md:text-base lg:text-lg text-gray-300">
+                Through Shonki Canadian, I aim to bridge the gap between urban
+                and rural communities, highlighting the challenges and triumphs
+                of modern farming while preserving the rich cultural heritage of
+                Canadian agriculture.
+              </p>
+              <p className="text-sm md:text-base lg:text-lg text-gray-300">
+                Join me on this journey as we explore the heart of Canadian
+                farming, one story at a time.
+              </p>
+            </div>
+            <div
+              ref={introRef}
+              className={`flex justify-center transition-all duration-1000 delay-500 ${
+                introInView
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+              }`}
+            >
+              <Image
+                src="/shonki_farmer_1.png"
+                alt="Amrit Singh - Founder of Shonki Canadian"
+                width={600}
+                height={600}
+                className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[500px] rounded-lg shadow-xl"
+              />
+            </div>
           </div>
         </div>
 

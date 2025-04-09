@@ -37,9 +37,15 @@ export const metadata: Metadata = {
       "Discover the inspiring stories of hardworking Canadian farmers. Through insightful interviews, we explore sustainable farming practices, innovative techniques, and the people who feed the world.",
     images: [
       {
+        url: "/shonki_canadin_logo.png",
+        width: 300,
+        height: 100,
+        alt: "Shonki Canadian Logo",
+      },
+      {
         url: "/shonki_farmer_1.png",
-        width: 1200,
-        height: 630,
+        width: 600,
+        height: 600,
         alt: "Canadian Farmer Interview",
       },
     ],
@@ -49,7 +55,7 @@ export const metadata: Metadata = {
     title: "Shonki Canadian | Stories of Canadian Farmers",
     description:
       "Discover the inspiring stories of hardworking Canadian farmers. Through insightful interviews, we explore sustainable farming practices, innovative techniques, and the people who feed the world.",
-    images: ["/shonki_farmer_1.png"],
+    images: ["/shonki_canadin_logo.png", "/shonki_farmer_1.png"],
     creator: "@shonkicanadian",
   },
   robots: {
